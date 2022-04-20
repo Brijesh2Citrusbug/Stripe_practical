@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from datetime import timedelta
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -129,6 +131,12 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'AUTH_HEADER_TYPES': ('JWT',),
+}
+
 
 STRIPE_PUBLIC_KEY = "pk_test_51J82l1Kh1D6CkDxjI1fpQAM2oMsqtYGL1odpk8MHvHT8FFLDH4mpGHQSEybiDDGUAcOcX36Dz91UZWfGy2ZZEGZT00IdBkYIvE"
 STRIPE_SECRET_KEY = "sk_test_51J82l1Kh1D6CkDxjY6HPUqMEZmaHSjPe5eRZ9jrYlcJRr9kAU9fcph7KIk0HsvXDalyg4juR644xIK4oT4ZoSorj00sFHRXSGv"
